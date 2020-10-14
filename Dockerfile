@@ -1,3 +1,5 @@
-FROM python:3.9-slim
+FROM python:3.9-alpine
 
-RUN pip install awsebcli
+RUN apk add git gcc musl-dev libffi-dev make openssl-dev && \
+        pip install awsebcli && \
+	apk del git gcc musl-dev libffi-dev make openssl-dev
